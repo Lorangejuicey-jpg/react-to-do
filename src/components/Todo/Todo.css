@@ -1,0 +1,35 @@
+.todo {
+  align-items: center;
+  background: #2c2c2c;
+  color: #fff;
+  box-shadow: 1px 1px 1px rgb(0 0 0 / 15%);
+  display: flex;
+  font-size: 24px;
+  justify-content: space-between;
+  padding: 5px 10px;
+  font-family: "poppins";
+  font-weight: lighter;
+  border-bottom: 2px solid #5c5555;
+}
+
+button.complete-button {
+  min-height: 25px;
+  min-width: 32px;
+  border: none;
+  background: lightgreen;
+  color: #fff;
+  margin-right: 10px;
+}
+button.delete-button {
+  height: 32px;
+  width: 32px;
+  border: none;
+  background: red;
+  color: #fff;
+}
+button {
+  font-family: "poppins";
+  font-weight: lighter;
+  font-size: 20px;
+  border-radius: 50px;
+}

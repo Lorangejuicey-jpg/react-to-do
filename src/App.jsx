@@ -1,46 +1,8 @@
 import React from "react";
 import "./App.css";
-
-function Todo({ todo, index, completeTodo, removeTodo }) {
-  return (
-    <div
-      className="todo"
-      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
-    >
-      {todo.text}
-      <div>
-        <button class="complete-button" onClick={() => completeTodo(index)}>
-          Complete
-        </button>
-        <button class="delete-button" onClick={() => removeTodo(index)}>
-          x
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function TodoForm({ addTodo }) {
-  const [value, setValue] = React.useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue("");
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-    </form>
-  );
-}
+import Todo from "./components/Todo/todo";
+import TodoForm from "./components/TodoForm/todoForm";
+import Heading from "./components/Heading/heading";
 
 function App() {
   const [todos, setTodos] = React.useState([
@@ -77,6 +39,12 @@ function App() {
 
   return (
     <div className="app">
+      <div className="todo-banner">
+        <div className="container">
+          <Heading naam="TODO" />
+          <TodoForm addTodo={addTodo} />
+        </div>
+      </div>
       <div className="todo-list">
         {todos.map((todo, index) => (
           <Todo
@@ -87,7 +55,6 @@ function App() {
             removeTodo={removeTodo}
           />
         ))}
-        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );
